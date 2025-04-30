@@ -55,3 +55,22 @@ input.addEventListener("keypress", function (event) {
     document.getElementById("addNameBtn").click();
   }
 });
+
+function displayNames(filterText = "") {
+  const nameList = document.getElementById("nameList");
+  nameList.innerHTML = "";
+
+  for (let i = 0; i < nameArray.length; i++) {
+    const name = nameArray[i];
+
+    if (name.toLowerCase().includes(filterText.toLowerCase())) {
+      // selection
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      const span = document.createElement("span");
+      span.textContent = name;
+      li.appendChild(span);
+      nameList.appendChild(li);
+    }
+  }
+}
